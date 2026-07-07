@@ -76,7 +76,7 @@ const T = {
     added: "Ajouté !", deletedMsg: "Supprimé", undo: "Annuler",
     premium: "Premium", addGoal: "+ Ajouter un objectif", goalName: "Nom de l'objectif",
     premiumTitle: "Passer à Premium", premiumDesc: "Débloque plusieurs objectifs d'épargne nommés et l'export de tes données en CSV.",
-    price: "3 € / mois (exemple — à ajuster)", payButton: "Payer avec Stripe", haveCode: "J'ai déjà un code",
+    price: "2 000 FCFA / mois (exemple — à ajuster)", payButton: "Payer avec Stripe", haveCode: "J'ai déjà un code",
     codePlaceholder: "Code premium", validate: "Valider", codeError: "Code invalide", codeUsedError: "Ce code a déjà été utilisé", close: "Fermer",
     export: "Exporter (CSV)", locked: "Réservé à Premium", unlockedMsg: "Premium débloqué !",
     momoTitle: "Comment payer", momoStep1: "Envoie", momoStep2: "au numéro Mobile Money ci-dessous :",
@@ -94,7 +94,7 @@ const T = {
     added: "Added!", deletedMsg: "Deleted", undo: "Undo",
     premium: "Premium", addGoal: "+ Add a goal", goalName: "Goal name",
     premiumTitle: "Upgrade to Premium", premiumDesc: "Unlock several named savings goals and CSV export of your data.",
-    price: "$3 / month (example — adjust as needed)", payButton: "Pay with Stripe", haveCode: "I already have a code",
+    price: "2,000 FCFA / month (example — adjust as needed)", payButton: "Pay with Stripe", haveCode: "I already have a code",
     codePlaceholder: "Premium code", validate: "Confirm", codeError: "Invalid code", codeUsedError: "This code was already used", close: "Close",
     export: "Export (CSV)", locked: "Premium only", unlockedMsg: "Premium unlocked!",
     momoTitle: "How to pay", momoStep1: "Send", momoStep2: "to the Mobile Money number below:",
@@ -112,7 +112,7 @@ const T = {
     added: "¡Añadido!", deletedMsg: "Eliminado", undo: "Deshacer",
     premium: "Premium", addGoal: "+ Añadir una meta", goalName: "Nombre de la meta",
     premiumTitle: "Pasar a Premium", premiumDesc: "Desbloquea varias metas de ahorro con nombre y la exportación de tus datos en CSV.",
-    price: "3 € / mes (ejemplo — ajustar)", payButton: "Pagar con Stripe", haveCode: "Ya tengo un código",
+    price: "2.000 FCFA / mes (ejemplo — ajustar)", payButton: "Pagar con Stripe", haveCode: "Ya tengo un código",
     codePlaceholder: "Código premium", validate: "Confirmar", codeError: "Código inválido", codeUsedError: "Este código ya fue usado", close: "Cerrar",
     export: "Exportar (CSV)", locked: "Solo Premium", unlockedMsg: "¡Premium desbloqueado!",
     momoTitle: "Cómo pagar", momoStep1: "Envía", momoStep2: "al número Mobile Money de abajo:",
@@ -160,7 +160,7 @@ function App() {
   const saved = loadSavedState();
   const [lang, setLang] = useState(saved?.lang || "fr");
   const [currency, setCurrency] = useState(
-    (saved?.currencyCode && CURRENCIES.find((c) => c.code === saved.currencyCode)) || CURRENCIES[0]
+    (saved?.currencyCode && CURRENCIES.find((c) => c.code === saved.currencyCode)) || CURRENCIES.find((c) => c.code === "XOF")
   );
   const [transactions, setTransactions] = useState(saved?.transactions || []);
   const [screen, setScreen] = useState("home");
@@ -445,7 +445,7 @@ function App() {
           h("p", { className: "text-lg font-extrabold mb-2", style: { color: C.ink } }, "📱 MTN Mobile Money : +242 06 601 71 66"),
           h("p", { className: "text-xs", style: { color: C.muted } }, t.momoStep3),
           h("a", {
-            href: "https://wa.me/24266017166", target: "_blank", rel: "noreferrer",
+            href: "https://wa.me/242066017166", target: "_blank", rel: "noreferrer",
             className: "block w-full rounded-xl py-3 mt-3 font-bold text-white text-center",
             style: { backgroundColor: C.teal },
           }, t.momoWrite)
