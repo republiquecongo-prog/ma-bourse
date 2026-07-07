@@ -39,7 +39,12 @@ exports.handler = async (event) => {
     };
   }
 
-  const store = getStore("premium-codes");
+  const store = getStore({
+    name: "premium-codes",
+    siteID: process.env.BLOBS_SITE_ID,
+    token: process.env.BLOBS_TOKEN,
+  });
+
   const existing = await store.get(code);
 
   if (existing) {
